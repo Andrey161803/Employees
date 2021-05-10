@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DataModel> call, Throwable t) {
-                Log.d("RetrofitCall", "" +t.toString());
+                Log.d("RetrofitCall",  t.toString());
             }
         });
     }
