@@ -11,8 +11,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.andrewsapp.employeeslist.adaptor.EmployeesAdaptor;
 import com.andrewsapp.employeeslist.api.ApiService;
 import com.andrewsapp.employeeslist.pojo.DataModel;
+import com.andrewsapp.employeeslist.pojo.Employee;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<DataModel> call, Response<DataModel> response) {
                 Log.d("RetrofitCall", "Success!");
 
+                ArrayList<Employee> employees = new ArrayList(response.body().getCompany().getEmployees());
+                EmployeesAdaptor adaptor = new EmployeesAdaptor(employees);
+
+                mRecyclerView.setAdapter(adaptor);
             }
 
             @Override
