@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<DataModel> call, Response<DataModel> response) {
                 Log.d("RetrofitCall", "Success!");
+
             }
 
             @Override
