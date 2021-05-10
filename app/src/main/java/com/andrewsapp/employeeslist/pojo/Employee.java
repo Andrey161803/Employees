@@ -20,25 +20,16 @@ public class Employee implements Comparable<Employee>{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public List<String> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<String> skills) {
-        this.skills = skills;
-    }
 
     @Override
     public int compareTo(Employee o) {

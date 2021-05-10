@@ -12,7 +12,4 @@ public class DataModel {
         return company;
     }
 
-    public void setCompany(Company employees) {
-        this.company = employees;
-    }
 }
