@@ -50,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
                 ArrayList<Employee> employees = new ArrayList(response.body().getCompany().getEmployees());
                 EmployeesAdaptor adaptor = new EmployeesAdaptor(employees);
-
+                Collections.sort(employees);
                 mRecyclerView.setAdapter(adaptor);
             }
 
             @Override
             public void onFailure(Call<DataModel> call, Throwable t) {
-                Log.d("RetrofitCall",  t.toString());
+                Log.d("RetrofitCall", t.toString());
             }
         });
     }

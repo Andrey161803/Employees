@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
     @SerializedName("name")
     @Expose
     private String name;
@@ -38,5 +38,18 @@ public class Employee {
 
     public void setSkills(List<String> skills) {
         this.skills = skills;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        if(this.name == null){
+            this.name = "Имя неизвестно";
+            return 0;
+        }
+        if(o.name == null){
+            this.name = "Имя неизвестно";
+            return 0;
+        }
+        return this.name.compareTo(o.name);
     }
 }
