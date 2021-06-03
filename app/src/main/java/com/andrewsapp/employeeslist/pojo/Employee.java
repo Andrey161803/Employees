@@ -10,8 +10,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-@Entity (tableName = "employee_list")
-public class Employee implements Comparable<Employee>{
+@Entity(tableName = "employee_list")
+public class Employee {
     @PrimaryKey(autoGenerate = true)
     public int id = 0;
 
@@ -40,19 +40,5 @@ public class Employee implements Comparable<Employee>{
 
     public List<String> getSkills() {
         return skills;
-    }
-
-
-    @Override
-    public int compareTo(Employee o) {
-        if(this.name == null){
-            this.name = "Имя неизвестно";
-            return 0;
-        }
-        if(o.name == null){
-            this.name = "Имя неизвестно";
-            return 0;
-        }
-        return this.name.compareTo(o.name);
     }
 }

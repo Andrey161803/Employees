@@ -14,7 +14,6 @@ import com.andrewsapp.employeeslist.databinding.ActivityMainBinding;
 import com.andrewsapp.employeeslist.dialog.AlertDialogFragment;
 import com.andrewsapp.employeeslist.pojo.Employee;
 
-import java.util.Collections;
 import java.util.List;
 
 
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onChanged(List<Employee> employee) {
                         if (employee != null) {
-                            //Collections.sort(employee);
                             adapter.setEmployees(employee);
                             viewBinding.rvEmployees.setAdapter(adapter);
                         }

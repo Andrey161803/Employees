@@ -29,6 +29,7 @@ public class MainViewModel extends AndroidViewModel {
         db = AppDatabase.getInstance(application);
         loadData();
     }
+
     public boolean isCalledAlertDialog() {
         return calledAlertDialog;
     }
