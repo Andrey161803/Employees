@@ -5,11 +5,14 @@ import android.util.Log;
 
 import com.andrewsapp.employeeslist.api.ApiFactory;
 import com.andrewsapp.employeeslist.database.AppDatabase;
+import com.andrewsapp.employeeslist.pojo.Employee;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -24,6 +27,10 @@ public class MainViewModel extends AndroidViewModel {
 
         db = AppDatabase.getInstance(application);
         loadData();
+    }
+
+    public LiveData<List<Employee>> getEmployees() {
+        return db.employeesInfoDao().getEmployees();
     }
 
     private void loadData() {

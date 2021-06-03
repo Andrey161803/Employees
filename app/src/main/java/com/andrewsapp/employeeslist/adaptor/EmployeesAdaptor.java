@@ -17,7 +17,7 @@ public class EmployeesAdaptor extends RecyclerView.Adapter<EmployeesAdaptor.Empl
 
     private List<Employee> employees;
 
-    public EmployeesAdaptor(List<Employee> employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 

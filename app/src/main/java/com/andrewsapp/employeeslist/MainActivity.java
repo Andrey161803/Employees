@@ -1,28 +1,44 @@
 package com.andrewsapp.employeeslist;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.os.Bundle;
+
+import com.andrewsapp.employeeslist.adaptor.EmployeesAdaptor;
+import com.andrewsapp.employeeslist.databinding.ActivityMainBinding;
+import com.andrewsapp.employeeslist.pojo.Employee;
+
+import java.util.Collections;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-
-    RecyclerView mRecyclerView;
-
-    private void init() {
-        mRecyclerView = findViewById(R.id.rvEmployees);
-    }
+    EmployeesAdaptor adapter = new EmployeesAdaptor();
+    MainViewModel model;
+    ActivityMainBinding viewBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        viewBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(viewBinding.getRoot());
 
-        init();
+        model = new ViewModelProvider(this).get(MainViewModel.class);
 
-
-
-
+        model.getEmployees().observe(this, new Observer<List<Employee>>() {
+                    @Override
+                    public void onChanged(List<Employee> employee) {
+                        if (employee != null) {
+                            Collections.sort(employee);
+                            adapter.setEmployees(employee);
+                            viewBinding.rvEmployees.setAdapter(adapter);
+                        }
+                    }
+                }
+        );
     }
+
 }
