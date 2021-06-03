@@ -16,13 +16,13 @@ import androidx.room.Query;
   можно сравнивать, но в данном случае наверное это не нужно*/
 
 @Dao
-interface EmployeesInfoDao {
+public interface EmployeesInfoDao {
 
     @Query("SELECT * FROM employee_list")
     LiveData<List<Employee>> getEmployees();
 
     @Insert
-    void isertEmployees(List<Employee> employees);
+    void insertEmployees(List<Employee> employees);
 
     @Query("DELETE FROM employee_list")
     void deleteAllEmployees();
