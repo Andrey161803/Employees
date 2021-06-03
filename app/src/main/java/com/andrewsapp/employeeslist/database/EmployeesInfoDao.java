@@ -18,7 +18,7 @@ import androidx.room.Query;
 @Dao
 public interface EmployeesInfoDao {
 
-    @Query("SELECT * FROM employee_list")
+    @Query("SELECT * FROM employee_list ORDER BY name is null or name='', name")
     LiveData<List<Employee>> getEmployees();
 
     @Insert

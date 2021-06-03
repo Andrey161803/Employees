@@ -19,6 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainViewModel extends AndroidViewModel {
 
+    private boolean calledAlertDialog = false;
     private final AppDatabase db;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -27,6 +28,13 @@ public class MainViewModel extends AndroidViewModel {
 
         db = AppDatabase.getInstance(application);
         loadData();
+    }
+    public boolean isCalledAlertDialog() {
+        return calledAlertDialog;
+    }
+
+    public void setCalledAlertDialog(boolean calledAlertDialog) {
+        this.calledAlertDialog = calledAlertDialog;
     }
 
     public LiveData<List<Employee>> getEmployees() {
@@ -53,5 +61,4 @@ public class MainViewModel extends AndroidViewModel {
         super.onCleared();
         compositeDisposable.dispose();
     }
-
 }
