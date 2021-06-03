@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">Employees List</string>
+
+    <!-- text_row_item -->
     <string name="phone_number">Phone Number</string>
     <string name="skills">Skills</string>
     <string name="name_empoyee">Name Empoyee</string>
+
+    <!-- alert_dialog_layout -->
+    <string name="dialog_no_connection_internet">Нет подключения к Интернету</string>
+    <string name="dialog_update_list_employees">Для обновления списка сотрудников \n включите интернет</string>
+    <string name="dialog_close">Закрыть</string>
+    <string name="dialog_connect">Включить</string>
 
     <!-- EmployeesAdaptor -->
     <string name="employees_adaptor_skills_unknow">Навыки не известны</string>

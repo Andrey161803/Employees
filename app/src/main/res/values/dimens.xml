@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- text_row_item -->
+    <dimen name="text_data_employee">18sp</dimen>
+    <dimen name="text_name_employee">24sp</dimen>
+    <dimen name="margin_card_view">4dp</dimen>
+</resources>
