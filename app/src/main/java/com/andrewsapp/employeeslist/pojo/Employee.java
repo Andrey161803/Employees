@@ -5,16 +5,22 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity (tableName = "employee_list")
 public class Employee implements Comparable<Employee>{
+    @PrimaryKey(autoGenerate = true)
+    public int id = 0;
     @SerializedName("name")
     @Expose
-    private String name;
+    public String name;
     @SerializedName("phone_number")
     @Expose
-    private String phoneNumber;
+    public String phoneNumber;
     @SerializedName("skills")
     @Expose
-    private List<String> skills = null;
+    public List<String> skills = null;
 
     public String getName() {
         return name;
