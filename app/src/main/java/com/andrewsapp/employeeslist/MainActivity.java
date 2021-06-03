@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("RetrofitCall", "Success!");
 
                 ArrayList<Employee> employees = new ArrayList(response.body().getCompany().getEmployees());
-                EmployeesAdaptor adaptor = new EmployeesAdaptor(employees);
                 Collections.sort(employees);
+                EmployeesAdaptor adaptor = new EmployeesAdaptor(employees);
                 mRecyclerView.setAdapter(adaptor);
             }
 

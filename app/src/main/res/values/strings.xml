@@ -3,4 +3,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="skills">Skills</string>
     <string name="name_empoyee">Name Empoyee</string>
+
+    <!-- EmployeesAdaptor -->
+    <string name="employees_adaptor_skills_unknow">Навыки не известны</string>
 </resources>

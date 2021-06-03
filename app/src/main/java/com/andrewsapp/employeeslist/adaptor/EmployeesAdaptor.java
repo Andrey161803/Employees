@@ -22,7 +22,20 @@ public class EmployeesAdaptor extends RecyclerView.Adapter<EmployeesAdaptor.Empl
     }
 
     public static class EmployeesViewHolder extends RecyclerView.ViewHolder {
-        final TextView tvNameEmployee, tvPhoneNumber, tvSkills;
+        final private TextView tvNameEmployee;
+        final private TextView tvPhoneNumber;
+        final private TextView tvSkills;
+
+        public void onBind(Employee employee) {
+            tvNameEmployee.setText(employee.getName());
+            tvPhoneNumber.setText(employee.getPhoneNumber());
+
+            if (employee.getSkills() != null) {
+                tvSkills.setText(employee.getSkills().toString());
+            } else {
+                tvSkills.setText(R.string.employees_adaptor_skills_unknow);
+            }
+        }
 
         public EmployeesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -44,14 +57,7 @@ public class EmployeesAdaptor extends RecyclerView.Adapter<EmployeesAdaptor.Empl
 
     @Override
     public void onBindViewHolder(@NonNull EmployeesViewHolder viewHolder, int position) {
-
-        viewHolder.tvNameEmployee.setText(employees.get(position).getName());
-        viewHolder.tvPhoneNumber.setText(employees.get(position).getPhoneNumber());
-        if (employees.get(position).getSkills() != null) {
-            viewHolder.tvSkills.setText(employees.get(position).getSkills().toString());
-        } else {
-            viewHolder.tvSkills.setText("Навыки не известны");
-        }
+        viewHolder.onBind(employees.get(position));
     }
 
     @Override
