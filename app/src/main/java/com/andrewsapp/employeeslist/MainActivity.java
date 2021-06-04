@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (!model.isCalledAlertDialog()) {
             if (internetIsConnected()) {
-                new AlertDialogFragment().show(getSupportFragmentManager(), "AlertDialog");
+                AlertDialogFragment alertDialog = new AlertDialogFragment();
+                alertDialog.show(getSupportFragmentManager(), "AlertDialog");
+                alertDialog.setCancelable(false);
                 model.setCalledAlertDialog(true);
             }
         }
